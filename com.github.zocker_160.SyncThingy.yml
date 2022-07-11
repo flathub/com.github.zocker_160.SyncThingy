@@ -55,11 +55,13 @@ modules:
     post-install:
       - install -D -m644 linux_packaging/SyncThingy.desktop -t /app/share/applications
       - install -D -m644 linux_packaging/metainfo.xml -t /app/share/metainfo
+      - install -D -m644 icons/logo-white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
+      - install -D -m644 icons/logo-black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: '0.2'
-        commit: 336a342c8a809d565efecdc48267d6c9ea5b66f2
+        tag: '0.3'
+        commit: 8d7739364317f3b9711f9035de676a5483121c37
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
