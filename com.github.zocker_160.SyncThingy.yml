@@ -74,4 +74,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: a91d2066eb794edb7b6c27c3ae2cca6523256bfe
+        commit: bf5f53bd66f33d8a2a43d206d5e141ed9a9a64d1
