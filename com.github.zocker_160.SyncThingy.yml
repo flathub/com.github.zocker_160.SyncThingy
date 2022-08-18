@@ -51,6 +51,21 @@ modules:
         url: https://raw.githubusercontent.com/syncthing/syncthing/9cc49aea7752a40f63011277bd1db4f85763b391/assets/logo-512.png
         sha256: d0275a171c811209fa5d39b5ccdf7504fc356e40144cb98cb1d85e2acd4793e7
 
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - -Dbackends=qt
+      - -Dintrospection=false
+      - -Ddocs=false
+    sources:
+      - type: git
+        url: https://github.com/flatpak/libportal.git
+        tag: '0.6'
+        commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
+
   - name: SyncThingy
     buildsystem: cmake-ninja
     post-install:
