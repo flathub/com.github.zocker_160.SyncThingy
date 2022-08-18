@@ -19,6 +19,7 @@ finish-args:
   - --filesystem=host
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.portal.Background
 
 modules:
   - name: syncthing
@@ -39,8 +40,8 @@ modules:
       - generated-sources.json
 
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.20.3/syncthing-source-v1.20.3.tar.gz
-        sha256: 114f1108cf75b7a7776d6981e3aed8f238333d08d915f939c9799a48fe3af576
+        url: https://github.com/syncthing/syncthing/releases/download/v1.20.4/syncthing-source-v1.20.4.tar.gz
+        sha256: c153b785d737eac133bb4137588aa0bf9e1e7fb31fdbc8d656a99b4d879b54b9
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -60,8 +61,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: '0.3'
-        commit: 219df78ff317e5d19612120cd7cf2e9cd3c0b0d7
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+        commit: a91d2066eb794edb7b6c27c3ae2cca6523256bfe
