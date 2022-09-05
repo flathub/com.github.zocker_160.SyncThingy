@@ -38,8 +38,8 @@ modules:
       - install -D -m644 logo-512.png -t /app/share/icons/hicolor/512x512/apps
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.21.0-rc.1/syncthing-source-v1.21.0-rc.1.tar.gz
-        sha256: 4662a3895f0a142125d1d36edcb45aba6a7f4da186dcff8a5c01cf546657e5f3
+        url: https://github.com/syncthing/syncthing/releases/download/v1.20.4/syncthing-source-v1.20.4.tar.gz
+        sha256: c153b785d737eac133bb4137588aa0bf9e1e7fb31fdbc8d656a99b4d879b54b9
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -74,8 +74,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: 0.4.1
-        commit: 8d64e95867e6437d3bed6df9a87ec2c9d50c0424
+        tag: '0.5'
+        commit: 3c798afafea2f2cb55e4ec80a288ddd6503e5966
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
