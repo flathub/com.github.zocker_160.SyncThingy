@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: 5.15-21.08
+runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.golang
@@ -38,8 +38,8 @@ modules:
       - install -D -m644 logo-512.png -t /app/share/icons/hicolor/512x512/apps
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.21.0-rc.2/syncthing-source-v1.21.0-rc.2.tar.gz
-        sha256: ec52d3d99e1c273476d4ae4a9a453389c69251053fcef1c69d16cfa8dbde31af
+        url: https://github.com/syncthing/syncthing/releases/download/v1.22.0/syncthing-source-v1.22.0.tar.gz
+        sha256: b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -74,4 +74,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: 3c798afafea2f2cb55e4ec80a288ddd6503e5966
+        commit: 15cd2eb90a9b0dd20ec5825cc0917753bdbb8865
