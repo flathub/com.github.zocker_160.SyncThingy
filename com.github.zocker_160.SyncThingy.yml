@@ -38,8 +38,8 @@ modules:
       - install -D -m644 logo-512.png -t /app/share/icons/hicolor/512x512/apps
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.22.0/syncthing-source-v1.22.0.tar.gz
-        sha256: b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45
+        url: https://github.com/syncthing/syncthing/releases/download/v1.23.0/syncthing-source-v1.23.0.tar.gz
+        sha256: 0f66d3dd2a7915a6f3ca6773c1dc02345444b2644a533211ce1ee57b371ae458
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -69,9 +69,10 @@ modules:
     post-install:
       - install -D -m644 linux_packaging/SyncThingy.desktop -t /app/share/applications
       - install -D -m644 linux_packaging/metainfo.xml -t /app/share/metainfo
-      - install -D -m644 icons/logo-white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
-      - install -D -m644 icons/logo-black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
+      - install -D -m644 icons/color.png -t /app/share/icons/hicolor/512x512/apps
+      - install -D -m644 icons/white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
+      - install -D -m644 icons/black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: e6843ce479b371293c905782ac93546890e77e6a
+        commit: 19252fea0ce8f9964802196cc16227eea6ab9c3d
