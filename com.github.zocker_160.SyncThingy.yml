@@ -5,7 +5,7 @@ sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.golang
 
-rename-icon: logo-512
+rename-icon: color
 rename-appdata-file: metainfo.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
@@ -35,19 +35,29 @@ modules:
         env GOFLAGS=-mod=vendor go run build.go -no-upgrade build
     post-install:
       - install -D -m755 syncthing -t /app/bin
-      - install -D -m644 logo-512.png -t /app/share/icons/hicolor/512x512/apps
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.22.0/syncthing-source-v1.22.0.tar.gz
-        sha256: b9644e814b4c7844a59e4e7705c550361cb4ed6c36bf9b46617de386ee2dad45
+        url: https://github.com/syncthing/syncthing/releases/download/v1.23.2/syncthing-source-v1.23.2.tar.gz
+        sha256: 3d0eca0e6f4eaaeba4879918b3f54f47d59fb5f4288a83af821d509271ada189
         x-checker-data:
           type: anitya
           project-id: 11814
           url-template: https://github.com/syncthing/syncthing/releases/download/v$version/syncthing-source-v$version.tar.gz
 
-      - type: file
-        url: https://raw.githubusercontent.com/syncthing/syncthing/9cc49aea7752a40f63011277bd1db4f85763b391/assets/logo-512.png
-        sha256: d0275a171c811209fa5d39b5ccdf7504fc356e40144cb98cb1d85e2acd4793e7
+  - name: libportal
+    buildsystem: meson
+    config-opts:
+      - -Dbackends=qt5
+      - -Dintrospection=false
+      - -Ddocs=false
+    sources:
+      - type: git
+        url: https://github.com/flatpak/libportal.git
+        tag: '0.6'
+        commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
 
   - name: libportal
     buildsystem: meson
@@ -69,9 +79,14 @@ modules:
     post-install:
       - install -D -m644 linux_packaging/SyncThingy.desktop -t /app/share/applications
       - install -D -m644 linux_packaging/metainfo.xml -t /app/share/metainfo
-      - install -D -m644 icons/logo-white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
-      - install -D -m644 icons/logo-black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
+      - install -D -m644 icons/color.png -t /app/share/icons/hicolor/512x512/apps
+      - install -D -m644 icons/white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
+      - install -D -m644 icons/black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: e6843ce479b371293c905782ac93546890e77e6a
+        tag: '0.6'
+        commit: 2e940b1407ee30942d64b0b4dee723173c17dbc9
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
