@@ -2,13 +2,15 @@ app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
 runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.golang
 
 rename-icon: color
 rename-appdata-file: metainfo.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
+
+cleanup:
+  - /lib/sdk
+  - /include
 
 finish-args:
   - --share=ipc
@@ -20,8 +22,11 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.portal.Background
+  - --talk-name=org.freedesktop.portal.Settings
 
 modules:
+  - golang_1.20.7.yml
+
   - name: syncthing
     buildsystem: simple
     build-options:
@@ -29,7 +34,7 @@ modules:
         GOBIN: /app/bin
     build-commands:
       - |
-        . /usr/lib/sdk/golang/enable.sh
+        . /app/lib/sdk/golang/enable.sh
         export GOPATH=$PWD/go
         go version
         env GOFLAGS=-mod=vendor go run build.go -no-upgrade build
@@ -59,21 +64,6 @@ modules:
           type: git
           tag-pattern: ^([\d.]+)$
 
-  - name: libportal
-    buildsystem: meson
-    config-opts:
-      - -Dbackends=qt5
-      - -Dintrospection=false
-      - -Ddocs=false
-    sources:
-      - type: git
-        url: https://github.com/flatpak/libportal.git
-        tag: '0.6'
-        commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
-
   - name: SyncThingy
     buildsystem: cmake-ninja
     post-install:
@@ -85,4 +75,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: afa297dff5507d5ab812b95c7e69bf026503ff50
+        commit: d6b755fd323e3bbfd3102dbd909b0b13123e52af
