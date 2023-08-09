@@ -2,13 +2,15 @@ app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
 runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.golang
 
 rename-icon: color
 rename-appdata-file: metainfo.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
+
+cleanup:
+  - /lib/sdk
+  - /include
 
 finish-args:
   - --share=ipc
@@ -20,8 +22,11 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.portal.Background
+  - --talk-name=org.freedesktop.portal.Settings
 
 modules:
+  - golang_1.20.7.yml
+
   - name: syncthing
     buildsystem: simple
     build-options:
@@ -29,7 +34,7 @@ modules:
         GOBIN: /app/bin
     build-commands:
       - |
-        . /usr/lib/sdk/golang/enable.sh
+        . /app/lib/sdk/golang/enable.sh
         export GOPATH=$PWD/go
         go version
         env GOFLAGS=-mod=vendor go run build.go -no-upgrade build
