@@ -70,8 +70,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: 0.6.1
-        commit: eef5fbc333e9e8f5a6a6aa35a2e928fd639ba041
+        tag: '0.7'
+        commit: d6b755fd323e3bbfd3102dbd909b0b13123e52af
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
