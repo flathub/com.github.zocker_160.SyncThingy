@@ -2,13 +2,15 @@ app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
 runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.golang
 
 rename-icon: color
 rename-appdata-file: metainfo.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
+
+cleanup:
+  - /lib/sdk
+  - /include
 
 finish-args:
   - --share=ipc
@@ -20,8 +22,11 @@ finish-args:
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.freedesktop.portal.Background
+  - --talk-name=org.freedesktop.portal.Settings
 
 modules:
+  - golang_1.20.7.yml
+
   - name: syncthing
     buildsystem: simple
     build-options:
@@ -29,7 +34,7 @@ modules:
         GOBIN: /app/bin
     build-commands:
       - |
-        . /usr/lib/sdk/golang/enable.sh
+        . /app/lib/sdk/golang/enable.sh
         export GOPATH=$PWD/go
         go version
         env GOFLAGS=-mod=vendor go run build.go -no-upgrade build
@@ -37,8 +42,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.23.6/syncthing-source-v1.23.6.tar.gz
-        sha256: 6c49fef03d710fe2a6eaa9818a9a2c3017f9a2ec00d724748c2a187cb58dbe0e
+        url: https://github.com/syncthing/syncthing/releases/download/v1.23.7/syncthing-source-v1.23.7.tar.gz
+        sha256: 18d8dd74d8077f500a139752261b78217ef0b0a912a7c017192097a7196e21a1
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -70,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: 0.6.1
-        commit: eef5fbc333e9e8f5a6a6aa35a2e928fd639ba041
+        tag: '0.7'
+        commit: d6b755fd323e3bbfd3102dbd909b0b13123e52af
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
