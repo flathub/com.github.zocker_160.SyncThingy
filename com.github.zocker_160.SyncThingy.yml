@@ -25,7 +25,7 @@ finish-args:
   - --talk-name=org.freedesktop.portal.Settings
 
 modules:
-  - golang_1.20.7.yml
+  - golang_1.20.x.yml
 
   - name: syncthing
     buildsystem: simple
@@ -42,8 +42,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.23.7/syncthing-source-v1.23.7.tar.gz
-        sha256: 18d8dd74d8077f500a139752261b78217ef0b0a912a7c017192097a7196e21a1
+        url: https://github.com/syncthing/syncthing/releases/download/v1.24.0/syncthing-source-v1.24.0.tar.gz
+        sha256: 4a9459667f9b70a7d1e7d572c7c9d02431ef8f055679eef368300ce1a826608f
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -60,9 +60,9 @@ modules:
         url: https://github.com/flatpak/libportal.git
         tag: '0.6'
         commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+#        x-checker-data:
+#          type: git
+#          tag-pattern: ^([\d.]+)$
 
   - name: SyncThingy
     buildsystem: cmake-ninja
