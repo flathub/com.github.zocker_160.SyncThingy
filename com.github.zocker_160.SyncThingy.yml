@@ -25,7 +25,7 @@ finish-args:
   - --talk-name=org.freedesktop.portal.Settings
 
 modules:
-  - golang_1.20.7.yml
+  - golang_1.20.x.yml
 
   - name: syncthing
     buildsystem: simple
