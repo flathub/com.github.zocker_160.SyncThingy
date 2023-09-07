@@ -60,9 +60,9 @@ modules:
         url: https://github.com/flatpak/libportal.git
         tag: '0.6'
         commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+#        x-checker-data:
+#          type: git
+#          tag-pattern: ^([\d.]+)$
 
   - name: SyncThingy
     buildsystem: cmake-ninja
