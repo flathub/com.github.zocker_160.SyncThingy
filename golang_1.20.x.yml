@@ -1,5 +1,5 @@
 # shamelessly copied from https://github.com/flathub/org.freedesktop.Sdk.Extension.golang
-name: golang1.20.7
+name: golang1.20.12
 modules:
   - name: golang
     buildsystem: simple
@@ -7,13 +7,13 @@ modules:
       - type: archive
         only-arches:
           - aarch64
-        url: https://go.dev/dl/go1.20.8.linux-arm64.tar.gz
-        sha256: 15ab379c6a2b0d086fe3e74be4599420e66549edf7426a300ee0f3809500f89e
+        url: https://go.dev/dl/go1.20.12.linux-arm64.tar.gz
+        sha256: 8afe8e3fb6972eaa2179ef0a71678c67f26509fab4f0f67c4b00f4cdfa92dc87
       - type: archive
         only-arches:
           - x86_64
-        url: https://go.dev/dl/go1.20.8.linux-amd64.tar.gz
-        sha256: cc97c28d9c252fbf28f91950d830201aa403836cbed702a05932e63f7f0c7bc4
+        url: https://go.dev/dl/go1.20.12.linux-amd64.tar.gz
+        sha256: 9c5d48c54dd8b0a3b2ef91b0f92a1190aa01f11d26e98033efa64c46a30bba7b
     build-commands:
       - install -d ${FLATPAK_DEST}/lib/sdk/golang
       - cp -rpv * ${FLATPAK_DEST}/lib/sdk/golang/
