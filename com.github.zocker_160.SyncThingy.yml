@@ -21,8 +21,6 @@ finish-args:
   - --filesystem=host
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.freedesktop.portal.Background
-  - --talk-name=org.freedesktop.portal.Settings
 
 modules:
   - golang_1.20.x.yml
