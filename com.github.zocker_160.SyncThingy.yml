@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
 
 rename-icon: color
@@ -21,11 +21,9 @@ finish-args:
   - --filesystem=host
   - --talk-name=org.kde.StatusNotifierWatcher
   - --talk-name=org.freedesktop.Notifications
-  - --talk-name=org.freedesktop.portal.Background
-  - --talk-name=org.freedesktop.portal.Settings
 
 modules:
-  - golang_1.20.7.yml
+  - golang_1.20.x.yml
 
   - name: syncthing
     buildsystem: simple
@@ -42,8 +40,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.23.2/syncthing-source-v1.23.2.tar.gz
-        sha256: 3d0eca0e6f4eaaeba4879918b3f54f47d59fb5f4288a83af821d509271ada189
+        url: https://github.com/syncthing/syncthing/releases/download/v1.27.3/syncthing-source-v1.27.3.tar.gz
+        sha256: 3fe25b863bb3a0f74bc95a7afa71bdaa2a79971542962236be5d85f469aa897d
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -52,17 +50,18 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
-      - -Dbackends=qt5
+      - -Dbackend-qt5=enabled
       - -Dintrospection=false
+      - -Dvapi=false
       - -Ddocs=false
     sources:
       - type: git
         url: https://github.com/flatpak/libportal.git
-        tag: '0.6'
-        commit: 13df0b887a7eb7b0f9b14069561a41f62e813155
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
+        tag: '0.7.1'
+        commit: e9ed3a50cdde321eaf42361212480a66eb94a57a
+#        x-checker-data:
+#          type: git
+#          tag-pattern: ^([\d.]+)$
 
   - name: SyncThingy
     buildsystem: cmake-ninja
@@ -75,4 +74,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: d6b755fd323e3bbfd3102dbd909b0b13123e52af
+        commit: 39c3cbca057b9d64d088674027ee5aea752a993b
