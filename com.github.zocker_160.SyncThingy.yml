@@ -50,7 +50,7 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
-      - -Dbackend-qt5=true
+      - -Dbackend-qt5=enabled
       - -Dintrospection=false
       - -Dvapi=false
       - -Ddocs=false
