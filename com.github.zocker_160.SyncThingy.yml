@@ -23,7 +23,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
 
 modules:
-  - golang_1.21.x.yml
+  - golang.yml
 
   - name: syncthing
     buildsystem: simple
