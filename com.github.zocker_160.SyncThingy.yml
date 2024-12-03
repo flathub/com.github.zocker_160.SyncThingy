@@ -40,8 +40,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.28.0/syncthing-source-v1.28.0.tar.gz
-        sha256: 73b4030f9fca381f58f4966db48cc135cd8232fe9e8853b5651de0f0bf4cfbf7
+        url: https://github.com/syncthing/syncthing/releases/download/v1.28.1/syncthing-source-v1.28.1.tar.gz
+        sha256: e965995bfa3b3cf62d935246a259e764703d4aedfa030ec310a287dca0e1459a
         x-checker-data:
           type: anitya
           project-id: 11814
