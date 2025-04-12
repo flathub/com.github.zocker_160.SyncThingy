@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: "5.15-24.08"
+runtime-version: 5.15-24.08
 sdk: org.kde.Sdk
 
 rename-icon: color
@@ -40,8 +40,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.29.4/syncthing-source-v1.29.4.tar.gz
-        sha256: d17699e3233127dd7f1315b41bec3926fdac42b6beeca4fcb6f05b1e25ed9941
+        url: https://github.com/syncthing/syncthing/releases/download/v1.29.5/syncthing-source-v1.29.5.tar.gz
+        sha256: 17f60258af1043db93f1df3609222cdd40b4fdcccae5c60dce46c557e0796098
         x-checker-data:
           type: anitya
           project-id: 11814
