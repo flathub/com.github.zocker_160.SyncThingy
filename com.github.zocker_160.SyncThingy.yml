@@ -4,7 +4,7 @@ runtime-version: 5.15-24.08
 sdk: org.kde.Sdk
 
 rename-icon: color
-rename-appdata-file: metainfo.xml
+rename-appdata-file: SyncThingy.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
 
