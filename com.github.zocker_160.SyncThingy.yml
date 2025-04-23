@@ -4,7 +4,7 @@ runtime-version: 5.15-24.08
 sdk: org.kde.Sdk
 
 rename-icon: color
-rename-appdata-file: metainfo.xml
+rename-appdata-file: SyncThingy.xml
 rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
 
@@ -64,17 +64,11 @@ modules:
 
   - name: SyncThingy
     buildsystem: cmake-ninja
-    post-install:
-      - install -D -m644 linux_packaging/SyncThingy.desktop -t /app/share/applications
-      - install -D -m644 linux_packaging/metainfo.xml -t /app/share/metainfo
-      - install -D -m644 icons/color.png -t /app/share/icons/hicolor/512x512/apps
-      - install -D -m644 icons/white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
-      - install -D -m644 icons/black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        tag: '0.8'
-        commit: dde8841e930a09a8d9f0bd95aa4b56356e4b81a9
+        tag: 0.8.1
+        commit: 38deed6e5a5289c5d6b1d30db3afd9e6a2682af3
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
