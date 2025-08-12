@@ -30,6 +30,8 @@ modules:
     build-options:
       env:
         GOBIN: /app/bin
+        BUILD_USER: syncthingy
+        BUILD_HOST: flathub
     build-commands:
       - |
         . /app/lib/sdk/golang/enable.sh
