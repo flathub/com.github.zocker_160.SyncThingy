@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: "6.9"
+runtime-version: 6.9
 sdk: org.kde.Sdk
 
 rename-icon: color
