@@ -70,5 +70,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        // qt6 branch
+        # qt6 branch
         commit: 71761187cff8c758f269037b1fb2832ca7fa71d7
