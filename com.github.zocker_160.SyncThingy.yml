@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: 5.15-23.08
+runtime-version: "6.9"
 sdk: org.kde.Sdk
 
 rename-icon: color
@@ -23,13 +23,15 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
 
 modules:
-  - golang_1.20.x.yml
+  - golang.yml
 
   - name: syncthing
     buildsystem: simple
     build-options:
       env:
         GOBIN: /app/bin
+        BUILD_USER: syncthingy
+        BUILD_HOST: flathub
     build-commands:
       - |
         . /app/lib/sdk/golang/enable.sh
@@ -40,8 +42,8 @@ modules:
       - install -D -m755 syncthing -t /app/bin
     sources:
       - type: archive
-        url: https://github.com/syncthing/syncthing/releases/download/v1.27.3/syncthing-source-v1.27.3.tar.gz
-        sha256: 3fe25b863bb3a0f74bc95a7afa71bdaa2a79971542962236be5d85f469aa897d
+        url: https://github.com/syncthing/syncthing/releases/download/v2.0.6/syncthing-source-v2.0.6.tar.gz
+        sha256: e17ea11091a8c9d29b99a09f93005f66a199ef4843a2be277c14361edef5953a
         x-checker-data:
           type: anitya
           project-id: 11814
@@ -50,14 +52,14 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
-      - -Dbackend-qt5=enabled
+      - -Dbackend-qt6=enabled
       - -Dintrospection=false
       - -Dvapi=false
       - -Ddocs=false
     sources:
       - type: git
         url: https://github.com/flatpak/libportal.git
-        tag: '0.7.1'
+        tag: '0.9.1'
         commit: e9ed3a50cdde321eaf42361212480a66eb94a57a
 #        x-checker-data:
 #          type: git
@@ -65,13 +67,8 @@ modules:
 
   - name: SyncThingy
     buildsystem: cmake-ninja
-    post-install:
-      - install -D -m644 linux_packaging/SyncThingy.desktop -t /app/share/applications
-      - install -D -m644 linux_packaging/metainfo.xml -t /app/share/metainfo
-      - install -D -m644 icons/color.png -t /app/share/icons/hicolor/512x512/apps
-      - install -D -m644 icons/white.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.white.png
-      - install -D -m644 icons/black.png /app/share/icons/hicolor/512x512/apps/${FLATPAK_ID}.black.png
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: 39c3cbca057b9d64d088674027ee5aea752a993b
+        // qt6 branch
+        commit: 71761187cff8c758f269037b1fb2832ca7fa71d7
