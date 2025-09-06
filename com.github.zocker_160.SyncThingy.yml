@@ -1,7 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-#runtime-version: 6.9
-runtime-version: 5.15-24.08
+runtime-version: 6.9
 sdk: org.kde.Sdk
 
 command: SyncThingy
@@ -69,5 +68,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        commit: 8fd78683e51b7db245864bcd0e939f8a0ccb4865
+        commit: cb25dbfbf544648b21f04508614e8c94733de8b8
 
