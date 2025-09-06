@@ -59,7 +59,9 @@ modules:
     sources:
       - type: git
         url: https://github.com/flatpak/libportal.git
-        tag: '0.9.1'
+        #tag: '0.9.1'
+        # latest commit to make it compile on Qt 6.9
+        commit: 796053d2eebe4532aad6bd3fd80cdf3b197806ec
 #        x-checker-data:
 #          type: git
 #          tag-pattern: ^([\d.]+)$
