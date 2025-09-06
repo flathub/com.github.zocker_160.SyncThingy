@@ -3,9 +3,6 @@ runtime: org.kde.Platform
 runtime-version: 6.9
 sdk: org.kde.Sdk
 
-rename-icon: color
-rename-appdata-file: SyncThingy.xml
-rename-desktop-file: SyncThingy.desktop
 command: SyncThingy
 
 cleanup:
@@ -61,7 +58,7 @@ modules:
         url: https://github.com/flatpak/libportal.git
         #tag: '0.9.1'
         # latest commit to make it compile on Qt 6.9
-        commit: 796053d2eebe4532aad6bd3fd80cdf3b197806ec
+        commit: bee595dfecc5a341f52eb001fe842803a5b1c8ee
 #        x-checker-data:
 #          type: git
 #          tag-pattern: ^([\d.]+)$
