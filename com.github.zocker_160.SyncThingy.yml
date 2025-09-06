@@ -52,7 +52,7 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
-      - -Dbackend-qt6=enabled
+      - -Dbackend-qt6=true
       - -Dintrospection=false
       - -Dvapi=false
       - -Ddocs=false
