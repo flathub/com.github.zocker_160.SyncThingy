@@ -1,6 +1,7 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: 6.9
+#runtime-version: 6.9
+runtime-version: 5.15-24.08
 sdk: org.kde.Sdk
 
 command: SyncThingy
@@ -49,7 +50,7 @@ modules:
   - name: libportal
     buildsystem: meson
     config-opts:
-      - -Dbackend-qt6=enabled
+      - -Dbackend-qt5=enabled
       - -Dintrospection=false
       - -Dvapi=false
       - -Ddocs=false
@@ -68,5 +69,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/zocker-160/SyncThingy.git
-        # qt6 branch
-        commit: bee595dfecc5a341f52eb001fe842803a5b1c8ee
+        commit: 3bc6b0f372d999a85ac9f64b893ece997588e511
