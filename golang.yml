@@ -7,13 +7,13 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://go.dev/dl/go1.24.6.linux-amd64.tar.gz
-        sha256: bbca37cc395c974ffa4893ee35819ad23ebb27426df87af92e93a9ec66ef8712
+        url: https://go.dev/dl/go1.25.3.linux-amd64.tar.gz
+        sha256: 0335f314b6e7bfe08c3d0cfaa7c19db961b7b99fb20be62b0a826c992ad14e0f
       - type: archive
         only-arches:
           - aarch64
-        url: https://go.dev/dl/go1.24.6.linux-arm64.tar.gz
-        sha256: 124ea6033a8bf98aa9fbab53e58d134905262d45a022af3a90b73320f3c3afd5
+        url: https://go.dev/dl/go1.25.3.linux-arm64.tar.gz
+        sha256: 1d42ebc84999b5e2069f5e31b67d6fc5d67308adad3e178d5a2ee2c9ff2001f5
     build-commands:
       - install -d ${FLATPAK_DEST}/lib/sdk/golang
       - cp -rpv * ${FLATPAK_DEST}/lib/sdk/golang/
