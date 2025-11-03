@@ -1,6 +1,6 @@
 app-id: com.github.zocker_160.SyncThingy
 runtime: org.kde.Platform
-runtime-version: 5.15-24.08
+runtime-version: 5.15-25.08
 sdk: org.kde.Sdk
 
 rename-icon: color
@@ -11,6 +11,7 @@ command: SyncThingy
 cleanup:
   - /lib/sdk
   - /include
+  - /lib/pkgconfig
 
 finish-args:
   - --share=ipc
